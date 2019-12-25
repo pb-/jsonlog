@@ -1,0 +1,14 @@
+{:deps
+ {ring/ring-core {:mvn/version "1.8.0"}
+  ring/ring-jetty-adapter {:mvn/version "1.8.0"}
+  org.clojure/data.json {:mvn/version "0.2.7"}
+  org.clojure/java.jdbc {:mvn/version "0.7.10"}
+  mysql/mysql-connector-java {:mvn/version "8.0.18"}}
+ :paths ["src" "resources"]
+ :aliases {:nrepl
+           {:extra-deps
+            {nrepl/nrepl {:mvn/version "0.6.0"}
+             ring/ring-devel {:mvn/version "1.8.0"}}}
+           :eastwood
+           {:main-opts ["-m" "eastwood.lint" {:source-paths ["src"]}]
+            :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}}}

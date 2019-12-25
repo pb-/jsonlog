@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  jsonlog:
+    build: .
+    environment:
+      MYSQL_DATABASE: jsonlog
+      MYSQL_USER: jsonlog
+      MYSQL_PASSWORD: jsonlog
+      MYSQL_HOST: db
+    ports:
+      - "5000:3000"
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: jsonlog
+      MYSQL_USER: jsonlog
+      MYSQL_PASSWORD: jsonlog
+    ports:
+      - "13306:3306"
